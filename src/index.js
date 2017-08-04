@@ -14,10 +14,11 @@ export default class Pagestart extends Component {
   render() {
       return(
           <Router>
-              <Scene navigationBarStyle={{backgroundColor: '#000' , height: 60, }}
+              <Scene navigationBarStyle={{backgroundColor: '#a16f32' , height: 80,  }}
                  key="root"
                  title="DogsWiki"
                  titleStyle={{color:'#ffffff', fontSize: 25,  flexDirection:'row',  alignSelf:'center', }}
+                     leftButtonIcon={1}
               >
               <Scene
                   key="Main"

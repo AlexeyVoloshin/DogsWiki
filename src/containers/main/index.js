@@ -5,17 +5,16 @@ import { getAllDogs } from '../../components/api';
 export default class Main extends Component {
     constructor(props) {
         super(props);
-        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !==r2});
         this.state = {
             isLoading: true,
             dogs: null,
-            dataSource: ds.cloneWithRows(allDogs.message),
         }
     }
     componentDidMount(){
         const self = this;
         getAllDogs().then((value) => {
-            self.setState({isLoading : false, dogs: value});
+            let ds =    new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+            self.setState({isLoading : false, dogs: ds.cloneWithRows(value.message),});
         });
     }
 
@@ -33,7 +32,7 @@ render() {
             <MainView
                 allDogs = {this.state.dogs}
             />
-        
+
         )
     }
 }
